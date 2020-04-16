@@ -34,7 +34,7 @@ ultimo_dia_atualizado = "None"
 with open('dados-ultimodia.obj', 'rb') as ultimo_dia_file:
     ultimo_dia_atualizado = pickle.load(ultimo_dia_file)
 
-    ultimo_dia_atualizado = "Data da atualização: {}\nCasos confirmados: {}\nCasos descartados: {}\nÓbitos confirmados: {}\nÓbitos descartados: {}\nTaxa de letalidade: {:f}%".format(ultimo_dia_atualizado['Data'], ultimo_dia_atualizado['CV19-CONF'], ultimo_dia_atualizado['CV19-DESC'], ultimo_dia_atualizado['CV19-MCONF'], ultimo_dia_atualizado['CV19-MDESC'], (ultimo_dia_atualizado['CV19-MCONF'] / ultimo_dia_atualizado['CV19-CONF'] + ultimo_dia_atualizado['CV19-MCONF']) * 100)
+    ultimo_dia_atualizado = "Data da atualização: {}\nCasos confirmados: {}\nCasos descartados: {}\nÓbitos confirmados: {}\nÓbitos descartados: {}\nTaxa de letalidade: {:f}%".format(ultimo_dia_atualizado['Data'], ultimo_dia_atualizado['CV19-CONF'], ultimo_dia_atualizado['CV19-DESC'], ultimo_dia_atualizado['CV19-MCONF'], ultimo_dia_atualizado['CV19-MDESC'], (ultimo_dia_atualizado['CV19-MCONF'] / (ultimo_dia_atualizado['CV19-CONF'] + ultimo_dia_atualizado['CV19-MCONF'])) * 100)
 
 # Set bot initial configs
 bot = telebot.TeleBot(TOKEN)
