@@ -25,6 +25,7 @@ plotsCallbacks = {
     'CV19-CONF': 'Casos confirmados',
     'CV19-DESC': 'Cassos descartados',
     'CV19-MIDC': 'Casos que vieram à óbito (em investigação, descartados e confirmados)',
+    'CV19-LET': 'Porcentagem de letalidade',
     'FLU-NOTISO': 'Casos com sintomas leves'
 }
 
@@ -97,6 +98,7 @@ def send_graficos(m):
             'CV19-CONF': open('plots/CV19-CONF.png', 'rb'),
             'CV19-DESC': open('plots/CV19-DESC.png', 'rb'),
             'CV19-MIDC': open('plots/CV19-MIDC.png', 'rb'),
+            'CV19-LET': open('plots/CV19-LET.png', 'rb'),
             'FLU-NOTISO': open('plots/FLU-NOTISO.png', 'rb')
         }
 
