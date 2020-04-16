@@ -20,6 +20,7 @@ commandsHelp = {
     'vdata': 'EM BREVE: Vê informações de acordo com uma data especifica'
 }
 
+plotsImgs = ['CV19-CSH', 'CV19-CONF', 'CV19-DESC', 'CV19-MIDC', 'CV19-LET', 'FLU-NOTISO']
 plotsCallbacks = {
     'CV19-CSH': 'Casos hospitalizados',
     'CV19-CONF': 'Casos confirmados',
@@ -93,17 +94,13 @@ def send_graficos(m):
     if isinstance(m, telebot.types.CallbackQuery) and len(text_split) > 1:
         grafico_escolhido = text_split[1]
 
-        plotsImgs = {
-            'CV19-CSH': open('plots/CV19-CSH.png', 'rb'),
-            'CV19-CONF': open('plots/CV19-CONF.png', 'rb'),
-            'CV19-DESC': open('plots/CV19-DESC.png', 'rb'),
-            'CV19-MIDC': open('plots/CV19-MIDC.png', 'rb'),
-            'CV19-LET': open('plots/CV19-LET.png', 'rb'),
-            'FLU-NOTISO': open('plots/FLU-NOTISO.png', 'rb')
-        }
-
         if grafico_escolhido in plotsImgs:
-            bot.send_photo(chat_id, plotsImgs[grafico_escolhido])
+            imagem = open('plots/' + str(grafico_escolhido) + '.png', 'rb')
+            
+            bot.send_photo(chat_id, imagem)
+
+            imagem.close()
+
     else:
         markup = telebot.types.InlineKeyboardMarkup(row_width=1)
 
